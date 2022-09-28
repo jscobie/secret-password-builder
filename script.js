@@ -5,7 +5,7 @@ var generateBtn = document.querySelector("#generate");
 const specialCharacters = ['!', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~'];
 const ucaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 const lcaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 // Write password to the #password input
 function writePassword() {
@@ -81,36 +81,20 @@ function generatePassword() {
       let password = "ERROR - NO PASSWORD GENERATED"
       return password;
     }
-
-
-    // shuffle array using Fisher-Yates aka Knuth Shuffle CREDIT: https://bost.ocks.org/mike/shuffle/
-    // function shuffle(array) {
-    //   let currentIndex = array.length,  randomIndex;
+    // randomly select characters above built passwordCharacters which houses confirmed 4 type options
+    for (var i = 0; i < passwordLength; i++) {
+      if (i === 0) {
+        // first run through we need to declare and then fill with the first random value passwordCharacters (built from the confirm of 4 types). 
+        // we use Math.Floor/Math.Random and then multiply Math.random by total length of passwordCharacters (built from the confirm of 4 types)
+        var buildPassword = passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+      } else {
+        // since this else handles all of the for until complete we need to add to buildPassword created above to build the output buildPassword
+        buildPassword = buildPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+      }
+    };
     
-    //   // While there remain elements to shuffle.
-    //   while (currentIndex != 0) {
-    
-    //     // Pick a remaining element.
-    //     randomIndex = Math.floor(Math.random() * currentIndex);
-    //     currentIndex--;
-    
-    //     // And swap it with the current element.
-    //     [array[currentIndex], array[randomIndex]] = [
-    //       array[randomIndex], array[currentIndex]];
-    //   }
-    
-    //   return array;
-    // }
-    
-    // Used like so
-    // var arr = [2, 11, 37, 42];
-    // shuffle(arr);
-    // console.log(arr);
-
-    // TODO:
-    // randomly select characters from password characters
-    
-    let password = passwordCharacters
+    // Now we have to set the value buildPassword (our built password) and return the password so it can be output on the screen in the box
+    let password = buildPassword
     return password;
   }
 
