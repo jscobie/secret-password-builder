@@ -23,6 +23,7 @@ function generatePassword() {
   const passwordLength = prompt("Select Password Length (Between 8 and 128)");
   // make sure password is a number value and between 8 and 128
   if (isNaN(passwordLength)) {
+    //NaN or not a number check, and alert of input not being a number at all
     alert("Password length must be a number!");
     return;
   } else if (passwordLength < 8 || passwordLength > 128) {
