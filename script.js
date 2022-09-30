@@ -54,28 +54,26 @@ function generatePassword() {
       var passwordCharacters =ucaseLetters.concat(numbers, specialCharacters);
     // 2 selected - build possible character from 2 selected lists
     } else if (isLowercase && isUppercase) {
-      var passwordCharacters = [lcaseLetters] + [ucaseLetters];
+      var passwordCharacters = lcaseLetters.concat(ucaseLetters);
     } else if (isLowercase && isNumeric) {
-      var passwordCharacters = [lcaseLetters] + [numbers];
+      var passwordCharacters = lcaseLetters.concat(numbers);
     } else if (isLowercase && isSpecial) {
-      var passwordCharacters = [lcaseLetters] + [specialCharacters];
+      var passwordCharacters = lcaseLetters.concat(specialCharacters);
     } else if (isUppercase && isNumeric) {
-      var passwordCharacters = [ucaseLetters] + [numbers];
+      var passwordCharacters = ucaseLetters.concat(numbers);
     } else if (isUppercase && isSpecial) {
-      var passwordCharacters = [ucaseLetters] + [specialCharacters];
-    } else if (isLowercase && isUppercase && isNumeric && isSpecial) {
-      var passwordCharacters = [lcaseLetters] + [ucaseLetters] + [numbers] + [specialCharacters];
+      var passwordCharacters = ucaseLetters.concat(specialCharacters);
     } else if (isNumeric && isSpecial) {
-      var passwordCharacters = [numbers] + [specialCharacters];
+      var passwordCharacters = numbers.concat(specialCharacters);
       // 1 selected - build possible characters from only the selected list
     } else if (isLowercase) {
-      var passwordCharacters =[lcaseLetters];
+      var passwordCharacters = lcaseLetters;
     } else if (isUppercase) {
-      var passwordCharacters =[ucaseLetters];
+      var passwordCharacters = ucaseLetters;
     } else if (isNumeric) {
-      var passwordCharacters =[numbers];
+      var passwordCharacters = numbers;
     } else if (isSpecial) {
-    var passwordCharacters =[specialCharacters];
+    var passwordCharacters = specialCharacters;
     // 0 selected - show error
     } else {
       alert("You Selected all Cancel/No  Action Aborted")
