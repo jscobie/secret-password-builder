@@ -16,7 +16,7 @@ Deployed page Link: https://jscobie.github.io/secret-password-builder/
 
 The following animation demonstrates the application functionality:
 
-![A user clicks through and inputs to build a password](assets\password-generator.gif)
+![A user clicks through and inputs to build a password](./assets/password-generator.gif)
 
 ## Installation
 
